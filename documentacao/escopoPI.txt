@@ -1,0 +1,17 @@
+O escopo do projeto Radar F1 consiste no desenvolvimento de um site interativo sobre Fórmula 1, com o objetivo de coletar e apresentar as preferências dos usuários. O sistema contará com as seguintes características: 
+
+Site com telas de Cadastro, Login, Início, Pilotos, Equipes, História e Regras, Dashboard e Quiz. 
+
+Cadastro de usuários com informações pessoais e preferências sobre o esporte, como piloto, equipe, circuito e temporada favoritos. 
+
+Menu de navegação para acesso entre as páginas. 
+
+Exibição de gráficos no dashboard com base nas respostas dos fãs. 
+
+Armazenamento dos dados em banco de dados. 
+
+Utilização de API para comunicação entre o sistema e o banco de dados. 
+
+Disponível para acesso em dispositivos como computador e celular. 
+
+Compatível com navegadores como Opera, Firefox, Edge e Chrome. 

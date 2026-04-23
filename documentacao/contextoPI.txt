@@ -1,0 +1,13 @@
+A Fórmula 1 tem uma grande relevância no mundo dos esportes hoje em dia, carregando um legado de maior competição automobilística ha mais de 72 anos, conquistando pessoas ao redor do mundo inteiro, de acordo com o Blog Porto Seguro, a competição já registrou uma audiência de 1,55 Bilhão de pessoas em 2021, somando público, canais digitais e televisão.
+Em 2025 com a estreia e entrada de um piloto brasileiro na Fórmula 1, o esporte vai se tornar mais frequente no Brasil por voltarmos a ter um representante brasileiro, O “efeito Bortoleto”, impulsionado pelo piloto Gabriel Bortoleto, aumentou significativamente a audiência da Fórmula 1 no Brasil: sua estreia em 2025 elevou em cerca de 30% a audiência na TV aberta, o site oficial da categoria no país saltou de cerca de 629 mil para mais de 1 milhão de visitantes mensais, e o interesse online pelo piloto cresceu fortemente, além do GP de São Paulo registrar recorde de público — dados citados por veículos como Lance, Veja e Motorsport.
+
+
+--------------------------------------------
+
+A Fórmula 1 possui grande relevância no cenário esportivo mundial, sendo considerada a principal categoria do automobilismo há mais de 70 anos. Ao longo desse período, o esporte conquistou uma ampla base de fãs ao redor do mundo. Segundo o Blog Porto Seguro, a competição registrou uma audiência de aproximadamente 1,55 bilhão de pessoas em 2021, considerando público de televisão, plataformas digitais e outros meios.
+
+No Brasil, o interesse pelo esporte vem crescendo novamente, especialmente com a entrada de um novo piloto brasileiro na categoria. Em 2025, a estreia de Gabriel Bortoleto impulsionou significativamente a visibilidade da Fórmula 1 no país, fenômeno conhecido como “efeito Bortoleto”. De acordo com o "Lance!" O interesse pelo piloto brasileiro registrou um crescimento explosivo de 747%. De acordo com a "Veja" um levantamento da consultoria Bites mostra que a simples presença de Bortoleto elevou a audiência do site oficial da Fórmula 1 no Brasil em 2025, com uma média de 1,057 milhão de visitantes mensais.
+
+Diante desse cenário, observa-se uma oportunidade de compreender melhor o perfil dos fãs brasileiros de Fórmula 1 com a nova crescente, suas preferências e interesses, como pilotos favoritos, equipes, circuitos e temporadas marcantes. No entanto, essas informações não são organizadas de forma estruturada, dificultando sua análise.
+
+Assim, este projeto propõe o desenvolvimento de um website capaz de coletar, armazenar e apresentar dados sobre os fãs brasileiros de Fórmula 1, permitindo a visualização dessas informações por meio de dashboards e contribuindo para a análise do comportamento do público.

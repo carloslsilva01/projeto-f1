@@ -1,0 +1,5 @@
+O objetivo do projeto Radar F1 é desenvolver um site interativo sobre o universo da Fórmula 1, permitindo que usuários se cadastrem e registrem suas preferências, como piloto, equipe, circuito e temporada favoritos. 
+
+O sistema também possibilitará a visualização dessas informações por meio de dashboards, apresentando as preferências dos fãs brasileiros. 
+
+Além disso, o site terá como finalidade apresentar conteúdos introdutórios sobre a Fórmula 1, atendendo tanto iniciantes quanto usuários que já acompanham o esporte. 

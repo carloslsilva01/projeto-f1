@@ -1,0 +1,15 @@
+Premissas: 
+
+O usuário terá acesso à internet para utilização do sistema. 
+
+Os usuários preencherão corretamente suas informações e preferências para realizar o cadastro. 
+
+O sistema será acessado por meio de navegadores web atualizados. 
+
+Restrições: 
+
+O projeto será desenvolvido dentro do prazo estabelecido pela disciplina. 
+
+Serão utilizadas apenas tecnologias abordadas durante o curso. 
+
+O sistema não contará com funcionalidades avançadas, como integração com APIs externas. 
