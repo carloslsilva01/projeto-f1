@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Radar F1</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <header>
@@ -13,27 +17,31 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="">Origem</a></li>
-                    <li><a href="">Equipes</a></li>
-                    <li><a href="">Pilotos</a></li>
-                    <li><a href="">Circuitos</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="index.html" class="link-menu">Início</a></li>
+                    <li><a href="" class="link-menu">Origem</a></li>
+                    <li><a href="" class="link-menu">Equipes</a></li>
+                    <li><a href="" class="link-menu">Pilotos</a></li>
+                    <li><a href="" class="link-menu">Circuitos</a></li>
+                    <li><a href="" class="btn-entrar">Entrar</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-
         <section class="banner">
+            <video autoplay loop muted>
+                <source src="./assets/banner.mp4" type="video/mp4">
+            </video>
             <div class="box-banner">
                 <h1>Explore o <span>universo</span> da <span>Fórmula 1</span></h1>
-                <h3>Conheça tudo sobre os pilotos, equipes, circuitos e descubra as preferências dos fãs brasileiros.</h3>
-                <a href="" class="btn">Explorar agora</a>
+                <h3>
+                    Conheça tudo sobre os pilotos, equipes, circuitos e
+                    descubra as preferências dos fãs brasileiros.
+                </h3>
+                <a href="#origem" class="btn">Explorar agora</a>
             </div>
         </section>
-
-        <section class="container-origem">
+        <section id="origem" class="container-origem">
             <div class="img-origem">
                 <img src="./assets/origem-f1.jpg" alt="Foto origem da F1">
             </div>
@@ -43,7 +51,6 @@
                 <a href="" class="btn">Veja a origem</a>
             </div>
         </section>
-
         <section class="container-equipe">
             <div class="box-equipe">
                 <h1 class="titulo">Conheça as Equipes</h1>
@@ -51,7 +58,6 @@
                 <a href="" class="btn">Veja mais equipes</a>
             </div>
         </section>
-
         <section class="container-piloto">
             <div class="box-piloto">
                 <h1 class="titulo">Conheça os Pilotos</h1>
@@ -59,7 +65,6 @@
                 <a href="" class="btn">Explorar Pilotos</a>
             </div>
         </section>
-
         <section class="container-circuito">
             <div class="box-circuito">
                 <h1 class="titulo">Circuitos</h1>
@@ -67,7 +72,6 @@
                 <a href="" class="btn">Veja mais circuitos</a>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -75,20 +79,25 @@
             <div class="img-logo">
                 <img src="./assets/logo.png" alt="Logo do Radar F1">
             </div>
+            <div class="sobre-footer">
+                <h2>Radar F1</h2>
+                <p>O Radar F1 é um projeto desenvolvido com o objetivo de apresentar informações sobre a Fórmula 1 e reunir dados sobre as preferências dos fãs brasileiros do automobilismo.</p>
+            </div>
             <div class="box-footer">
                 <ul class="menu-footer">
+                    <p>Menu rápido:</p>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="">Origem</a></li>
                     <li><a href="">Equipes</a></li>
                     <li><a href="">Pilotos</a></li>
                     <li><a href="">Circuitos</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="">Entrar</a></li>
                 </ul>
             </div>
         </div>
         <div class="dev">
-            <h2>Desenvolvido por Carlos Vinicius</h2>
-            <h3>© 2026 Radar F1</h3>
+            <p>Desenvolvido por Carlos Vinicius</p>
+            <p>© 2026 Radar F1</p>
         </div>
     </footer>
 </body>
