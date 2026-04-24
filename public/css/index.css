@@ -4,7 +4,7 @@ main {
 
 .banner {
     width: 100%;
-    height: 80vh;
+    height: 84vh;
 
     position: relative; /* necessario pro video se alinhar a esse container */
     overflow: hidden; /* esconde parte que ultrapasse o banner */
@@ -76,10 +76,101 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 45px;
 }
 
 .box-origem .btn {
+    background-color: #E10600;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.container-equipe {
+    padding-top: 12%;
+    padding-left: 5%;
+    padding-bottom: 10%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url("../assets/equipe-f1.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+}
+
+.box-equipe {
+    width: 40%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+.box-equipe .btn {
+    background-color: #E10600;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.container-piloto {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #0D0D0D;
+    padding: 50px;
+    gap: 20px;
+}
+
+ .img-piloto {
+    width: 45%;
+}
+
+.img-piloto img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.box-piloto {
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 45px;
+}
+
+.box-piloto .btn {
+    background-color: #E10600;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.container-circuito {
+    padding-top: 6%;
+    padding-left: 5%;
+    padding-bottom: 8%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("../assets/circuito-f1.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+}
+
+.box-circuito {
+    width: 45%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    align-items: flex-start;
+}
+
+.box-circuito .btn {
     background-color: #E10600;
     color: white;
     padding: 12px 28px;
