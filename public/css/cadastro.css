@@ -72,18 +72,16 @@
 
 .painel-equipe {
     width: 55%;
-
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.65),
         rgba(0, 0, 0, 0.75)),
         url("../assets/equipe-f1.png");
-
     background-size: cover;
     background-position: center;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.5s;
 }
 
 .conteudo-painel {
