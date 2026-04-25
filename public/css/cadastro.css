@@ -1,0 +1,103 @@
+.container-cadastro {
+    width: 100%;
+    display: flex;
+}
+
+.box-cadastro {
+    width: 45%;
+    background-color: #111111;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo p {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    height: 40px;
+
+    background-color: #1B1B1B;
+    border: 2px solid transparent;
+    border-radius: 10px;
+
+    padding: 0 15px;
+
+    color: white;
+    font-size: 15px;
+
+    outline: none;
+    transition: 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus {
+    border-color: #E10600;
+}
+
+.campo input::placeholder {
+    color: #AAAAAA;
+}
+
+.btn-cadastrar {
+    width: 100%;
+    height: 45px;
+    margin-top: 15px;
+    background-color: #E10600;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cadastrar:hover {
+    transform: translateY(-3px);
+    background-color: #ff1f1f;
+}
+
+.painel-equipe {
+    width: 55%;
+
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.65),
+        rgba(0, 0, 0, 0.75)),
+        url("../assets/equipe-f1.png");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-painel {
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+.conteudo-painel h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.conteudo-painel p {
+    font-size: 18px;
+    color: #DDDDDD;
+}

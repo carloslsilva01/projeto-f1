@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Radar F1</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 <body>
     <main class="container-cadastro">
@@ -26,7 +28,7 @@
             <div class="campo">
                 <p>Equipe:</p>
 
-                <select id="input_equipe">
+                <select id="input_equipe" onchange="trocarEquipe()">
                     <option value="" disabled selected>Selecione uma equipe</option>
 
                     <option value="1">Alpine</option>
@@ -200,9 +202,60 @@
             <button class="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
         </section>
 
-        <section class="painel-equipe">
+        <section class="painel-equipe" id="painel_equipe">
+
+            <div class="conteudo-painel">
+                <h1 id="titulo_equipe">Escolha sua equipe</h1>
+                <p id="descricao_equipe">
+                    Descubra informações sobre sua equipe favorita.
+                </p>
+            </div>
 
         </section>
     </main>
 </body>
 </html>
+<script>
+    const painel = document.getElementById("painel_equipe");
+    const titulo = document.getElementById("titulo_equipe");
+
+    function trocarEquipe() {
+
+        const equipe = input_equipe.value;
+
+        if (equipe == 1) {
+            painel.style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('./assets/equipe/alpine.jpg')";
+
+            titulo.innerHTML = "Alpine";
+        }
+
+        if (equipe == 2) {
+            painel.style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('./assets/equipe/astonmartin.jpg')";
+
+            titulo.innerHTML = "Aston Martin";
+        }
+
+        if (equipe == 3) {
+            painel.style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('./assets/equipe/audi.jpg')";
+
+            titulo.innerHTML = "Audi";
+        }
+
+        if (equipe == 4) {
+            painel.style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('./assets/equipe/cadillac.jpg')";
+
+            titulo.innerHTML = "Cadillac";
+        }
+
+        if (equipe == 5) {
+            painel.style.backgroundImage =
+            "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('./assets/equipe/ferrari.jpg')";
+
+            titulo.innerHTML = "Ferrari";
+        }
+    }
+</script>
