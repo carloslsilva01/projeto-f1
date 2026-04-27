@@ -70,6 +70,21 @@
     background-color: #ff1f1f;
 }
 
+.texto-login {
+    text-align: center;
+    color: #CCCCCC;
+}
+
+.texto-login a {
+    color: #E10600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.texto-login a:hover {
+    text-decoration: underline;
+}
+
 .painel-equipe {
     width: 55%;
     background-image:

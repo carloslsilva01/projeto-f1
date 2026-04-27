@@ -191,15 +191,20 @@
 
             <div class="campo">
                 <p>Senha:</p>
-                <input type="password" id="input_senha">
+                <input type="password" id="input_senha" required>
             </div>
 
             <div class="campo">
                 <p>Confirmar senha:</p>
-                <input type="password" id="input_confirmarSenha">
+                <input type="password" id="input_confirmarSenha" required>
             </div>
 
             <button class="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
+
+            <p class="texto-login">
+                Já possui uma conta?
+                <a href="login.html">Entre aqui</a>
+            </p>
         </section>
 
         <section class="painel-equipe" id="painel_equipe">
@@ -220,7 +225,7 @@
 
     function trocarEquipe() {
 
-        const equipe = input_equipe.value;
+        const equipe = document.getElementById("input_equipe").value;
 
         if (equipe == 1) {
             painel.style.backgroundImage =

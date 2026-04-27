@@ -1,0 +1,152 @@
+.container-card {
+    width: 100%;
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 30px;
+    background-color: #090909;
+}
+
+.card-piloto {
+    width: 300px;
+    height: 430px;
+    margin-bottom: 30px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-piloto:hover .card-inner {
+    transform: rotateY(180deg) scale(1.03);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border: 3px solid var(--equipe);
+}
+
+.card-front {
+    background:
+    linear-gradient(
+        180deg,
+        #1A1A1A 0%,
+        #0B0B0B 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-front img {
+    width: 100%;
+    height: 310px;
+    object-fit: contain;
+    padding: 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+}
+
+.card-front h2 {
+    color: white;
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+.card-front p {
+    color: var(--equipe);
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+.card-back {
+    background:
+    linear-gradient(
+        180deg,
+        #171717 0%,
+        #090909 100%
+    );
+    transform: rotateY(180deg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.card-back h2 {
+    color: var(--equipe);
+    font-size: 30px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.card-back p {
+    color: white;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 8px;
+}
+
+.card-back strong {
+    color: var(--equipe);
+}
+
+.ferrari {
+    --equipe: #E10600;
+}
+
+.mercedes {
+    --equipe: #00D2BE;
+}
+
+.redbull {
+    --equipe: #1E5BC6;
+}
+
+.mclaren {
+    --equipe: #FF8700;
+}
+
+.astonmartin {
+    --equipe: #006F62;
+}
+
+.williams {
+    --equipe: #005AFF;
+}
+
+.alpine {
+    --equipe: #FF5F9E;
+}
+
+.haas {
+    --equipe: #B6BABD;
+}
+
+.audi {
+    --equipe: #BB0000;
+}
+
+.racingbulls {
+    --equipe: #6692FF;
+}
+
+.cadillac {
+    --equipe: #7e7e7e;
+}
