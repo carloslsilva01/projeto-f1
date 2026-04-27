@@ -338,7 +338,108 @@
     }
 
     function cadastrar() {
-        
+
+        const nome = document.getElementById("input_nome").value;
+        const email = document.getElementById("input_email").value;
+
+        const equipe = document.getElementById("input_equipe").value;
+        const piloto = document.getElementById("input_piloto").value;
+        const circuito = document.getElementById("input_circuito").value;
+        const temporada = document.getElementById("input_temporada").value;
+        const rivalidade = document.getElementById("input_rivalidade").value;
+        const acompanhamento = document.getElementById("input_acompanhamento").value;
+
+        const senha = document.getElementById("input_senha").value;
+        const confirmarSenha = document.getElementById("input_confirmarSenha").value;
+
+        if (nome.trim().length < 3) {
+            alert("O nome deve possuir pelo menos 3 caracteres.");
+            return;
+        }
+
+        if (
+            !email.includes("@") ||
+            !email.includes(".") ||
+            email.startsWith("@") ||
+            email.endsWith("@") ||
+            email.startsWith(".") ||
+            email.endsWith(".")
+        ) {
+            alert("Digite um email válido.");
+            return;
+        }
+
+        if (
+            equipe == "" ||
+            piloto == "" ||
+            circuito == "" ||
+            temporada == "" ||
+            rivalidade == "" ||
+            acompanhamento == ""
+        ) {
+            alert("Preencha todos os campos.");
+            return;
+        }
+
+        if (senha == "" || confirmarSenha == "") {
+            alert("Preencha a senha.");
+            return;
+        }
+
+        if (senha.length < 8) {
+            alert("A senha deve possuir no mínimo 8 caracteres.");
+            return;
+        }
+
+        let possuiMaiuscula = false;
+        for (let i = 0; i < senha.length; i++) {
+            const letra = senha[i];
+            if (letra >= "A" && letra <= "Z") {
+                possuiMaiuscula = true;
+                break;
+            }
+        }
+
+        if (!possuiMaiuscula) {
+            alert("A senha deve possuir pelo menos uma letra maiúscula.");
+            return;
+        }
+
+        let possuiNumero = false;
+        for (let i = 0; i < senha.length; i++) {
+            const caractere = senha[i];
+            if (caractere >= "0" && caractere <= "9") {
+                possuiNumero = true;
+                break;
+            }
+        }
+
+        if (!possuiNumero) {
+            alert("A senha deve possuir pelo menos um número.");
+            return;
+        }
+
+        let possuiEspecial = false;
+        const especiais = "!@#$%&*()_+-=[]{};:,.<>?/";
+        for (let i = 0; i < senha.length; i++) {
+            if (especiais.includes(senha[i])) {
+                possuiEspecial = true;
+                break;
+            }
+
+        }
+
+        if (!possuiEspecial) {
+            alert("A senha deve possuir pelo menos um caractere especial.");
+            return;
+        }
+
+        if (senha != confirmarSenha) {
+            alert("As senhas não coincidem.");
+            return;
+        }
+
+        alert("Cadastro realizado com sucesso!");
     }
 </script>
 </body>

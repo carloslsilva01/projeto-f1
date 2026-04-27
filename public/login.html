@@ -78,5 +78,61 @@
             <p>© 2026 Radar F1</p>
         </div>
     </footer>
+    <script>
+
+        let tentativas = 3;
+
+        function entrar() {
+
+            const email = document.getElementById("input_email").value.trim();
+            const senha = document.getElementById("input_senha").value;
+
+            const botao = document.querySelector(".btn-logar");
+
+            if (email == "" || senha == "") {
+                alert("Preencha todos os campos.");
+                return;
+            }
+
+            if (
+                !email.includes("@") ||
+                !email.includes(".") ||
+                email.startsWith("@") ||
+                email.endsWith("@") ||
+                email.startsWith(".") ||
+                email.endsWith(".")
+            ) {
+
+                tentativas--;
+
+                alert(`Digite um email válido. Tentativas restantes: ${tentativas}`);
+
+                if (tentativas == 0) {
+                    alert("Muitas tentativas inválidas. Tente novamente mais tarde.");
+                    botao.disabled = true;
+                    botao.innerHTML = "Bloqueado";
+                }
+                return;
+            }
+
+            if (senha.length < 8) {
+
+                tentativas--;
+
+                alert(`Senha inválida. Tentativas restantes: ${tentativas}`);
+
+                if (tentativas == 0) {
+                    alert("Muitas tentativas inválidas. Tente novamente mais tarde.");
+                    botao.disabled = true;
+                    botao.innerHTML = "Bloqueado";
+                }
+                return;
+            }
+
+            alert("Login realizado com sucesso!");
+
+        }
+
+    </script>
 </body>
 </html>
