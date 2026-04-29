@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    Teste
+<body onload="carregar()">
+    <p id="texto">Olá </p>
+    <script>
+        const nome = sessionStorage.getItem('NOME_USUARIO');
+        const email = sessionStorage.getItem('EMAIL_USUARIO');
+
+        function carregar() {
+            texto.innerHTML += ` ${nome}`;
+        }
+    </script>
 </body>
 </html>

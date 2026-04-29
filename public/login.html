@@ -142,6 +142,14 @@
             .then(function (resposta) {
                 console.log("Resposta:", resposta);
                 if (resposta.ok) {
+
+                    resposta.json().then(json => {
+                        console.log(JSON.stringify(json));
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.ID_USUARIO = json.id;
+                    })
+
                     alert("Login realizado com sucesso!");
                     setTimeout(function () {
                         window.location = "dashboard.html";
