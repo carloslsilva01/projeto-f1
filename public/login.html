@@ -129,7 +129,31 @@
                 return;
             }
 
-            alert("Login realizado com sucesso!");
+            fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+            })
+            .then(function (resposta) {
+                console.log("Resposta:", resposta);
+                if (resposta.ok) {
+                    alert("Login realizado com sucesso!");
+                    setTimeout(function () {
+                        window.location = "dashboard.html";
+                    }, 2000);
+                } else {
+                    alert("Erro ao tentar entrar.");
+                }
+            })
+            .catch(function (erro) {
+                console.log("Erro:", erro);
+                alert("Erro na comunicação com o servidor.");
+            });
 
         }
 
