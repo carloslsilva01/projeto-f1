@@ -191,7 +191,8 @@
 
             <div class="campo">
                 <p>Senha:</p>
-                <input type="password" id="input_senha" required>
+                <input type="password" id="input_senha" oninput="validarSenha()" required>
+                <p id="minimo_senha"></p>
             </div>
 
             <div class="campo">
@@ -337,6 +338,53 @@
 
     }
 
+    function validarSenha() {
+
+        const senha = document.getElementById("input_senha").value;
+        
+        let possuiMaiuscula = false;
+        for (let i = 0; i < senha.length; i++) {
+            const letra = senha[i];
+            if (letra >= "A" && letra <= "Z") {
+                possuiMaiuscula = true;
+                break;
+            }
+        }
+
+        let possuiNumero = false;
+        for (let i = 0; i < senha.length; i++) {
+            const caractere = senha[i];
+            if (caractere >= "0" && caractere <= "9") {
+                possuiNumero = true;
+                break;
+            }
+        }
+
+         let possuiEspecial = false;
+        const especiais = "!@#$%&*()_+-=[]{};:,.<>?/";
+        for (let i = 0; i < senha.length; i++) {
+            if (especiais.includes(senha[i])) {
+                possuiEspecial = true;
+                break;
+            }
+
+        }
+
+        if (senha.length < 8) {
+            minimo_senha.innerHTML = "A senha deve possuir no mínimo 8 caracteres.";
+        } else if (!possuiMaiuscula) {
+            minimo_senha.innerHTML = "A senha deve possuir pelo menos uma letra maiúscula.";
+        } else if (!possuiNumero) {
+            minimo_senha.innerHTML = "A senha deve possuir pelo menos um número.";
+        } else if (!possuiEspecial) {
+            minimo_senha.innerHTML = "A senha deve possuir pelo menos um caractere especial.";
+        } else {
+            minimo_senha.innerHTML = "";
+            return true;
+        }
+
+    }
+
     function cadastrar() {
 
         const nome = document.getElementById("input_nome").value;
@@ -375,67 +423,21 @@
             circuito == "" ||
             temporada == "" ||
             rivalidade == "" ||
-            acompanhamento == ""
+            acompanhamento == "" ||
+            senha == "" ||
+            confirmarSenha == ""
         ) {
             alert("Preencha todos os campos.");
             return;
         }
 
-        if (senha == "" || confirmarSenha == "") {
-            alert("Preencha a senha.");
-            return;
-        }
-
-        if (senha.length < 8) {
-            alert("A senha deve possuir no mínimo 8 caracteres.");
-            return;
-        }
-
-        let possuiMaiuscula = false;
-        for (let i = 0; i < senha.length; i++) {
-            const letra = senha[i];
-            if (letra >= "A" && letra <= "Z") {
-                possuiMaiuscula = true;
-                break;
-            }
-        }
-
-        if (!possuiMaiuscula) {
-            alert("A senha deve possuir pelo menos uma letra maiúscula.");
-            return;
-        }
-
-        let possuiNumero = false;
-        for (let i = 0; i < senha.length; i++) {
-            const caractere = senha[i];
-            if (caractere >= "0" && caractere <= "9") {
-                possuiNumero = true;
-                break;
-            }
-        }
-
-        if (!possuiNumero) {
-            alert("A senha deve possuir pelo menos um número.");
-            return;
-        }
-
-        let possuiEspecial = false;
-        const especiais = "!@#$%&*()_+-=[]{};:,.<>?/";
-        for (let i = 0; i < senha.length; i++) {
-            if (especiais.includes(senha[i])) {
-                possuiEspecial = true;
-                break;
-            }
-
-        }
-
-        if (!possuiEspecial) {
-            alert("A senha deve possuir pelo menos um caractere especial.");
-            return;
-        }
-
         if (senha != confirmarSenha) {
             alert("As senhas não coincidem.");
+            return;
+        }
+
+        if(!validarSenha()) {
+            alert("Preencha os requisitos da senha.");
             return;
         }
 
