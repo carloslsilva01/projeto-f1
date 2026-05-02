@@ -8,6 +8,20 @@
     background-color: #090909;
 }
 
+.titulo-grid-atual {
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.titulo-grid-lendas {
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
 .card-piloto {
     width: 300px;
     height: 430px;
@@ -103,8 +117,37 @@
     padding-bottom: 8px;
 }
 
+.card-back span {
+    color: #d6d6d6;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 8px;
+    text-align: left;
+}
+
 .card-back strong {
     color: var(--equipe);
+}
+
+.lendario .card-back {
+    padding: 22px;
+    gap: 10px;
+}
+
+.lendario .card-back h2 {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+.lendario .card-back p {
+    font-size: 15px;
+    padding-bottom: 6px;
+}
+
+.lendario .card-back span {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: 4px;
 }
 
 .ferrari {
@@ -149,4 +192,8 @@
 
 .cadillac {
     --equipe: #7e7e7e;
+}
+
+.lendario {
+    --equipe: #dda200;
 }
