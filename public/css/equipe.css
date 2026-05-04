@@ -1,0 +1,110 @@
+.container-equipes {
+    width: 100%;
+    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 50px 0px;
+    background-color: #090909;
+}
+
+.titulo-equipe-atual {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.equipe {
+    background-color: #090909;
+    border-top: 10px solid var(--borda);
+    border-bottom: 10px solid var(--borda);
+    display: flex;
+    width: 100%;
+    padding: 30px;
+    gap: 30px;
+    color: white;
+}
+
+.equipe-logo {
+    align-self: center;
+    width: 50%;
+    height: auto;
+    object-fit: contain;
+}
+
+.container-imagem {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 25%;
+}
+
+.container-descricao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-descricao h1,
+.container-descricao h2 {
+    color: var(--equipe);
+}
+
+.dados-equipe {
+    display: flex;
+    gap: 30px;
+}
+
+.ferrari {
+    --equipe: #E10600;
+    --borda: #720400;
+}
+
+.mercedes {
+    --equipe: #00D2BE;
+    --borda: #00695f;
+}
+
+.redbull {
+    --equipe: #1E5BC6;
+    --borda: #0b2c66;
+}
+
+.mclaren {
+    --equipe: #FF8700;
+    --borda: #a85600;
+}
+
+.astonmartin {
+    --equipe: #006F62;
+    --borda: #003b34;
+}
+
+.williams {
+    --equipe: #005AFF;
+    --borda: #002c7c;
+}
+
+.alpine {
+    --equipe: #FF5F9E;
+    --borda: #9e2456;
+}
+
+.haas {
+    --equipe: #B6BABD;
+    --borda: #5e6163;
+}
+
+.audi {
+    --equipe: #BB0000;
+    --borda: #5e0000;
+}
+
+.racingbulls {
+    --equipe: #6692FF;
+    --borda: #2c4f9e;
+}
+
+.cadillac {
+    --equipe: #7e7e7e;
+    --borda: #3f3f3f;
+}
