@@ -178,5 +178,9 @@ CREATE TABLE usuario (
 
     CONSTRAINT fk_usuario_temporada
         FOREIGN KEY (fk_temporada)
-        REFERENCES temporada(id_temporada)
+        REFERENCES temporada(id_temporada),
+
+    CONSTRAINT fk_usuario_acompanhamento
+        FOREIGN KEY (fk_acompanhamento)
+        REFERENCES acompanhamento(id_acompanhamento)
 );
