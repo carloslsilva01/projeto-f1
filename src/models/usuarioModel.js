@@ -52,7 +52,7 @@ function cadastrar(
             fk_circuito,
             fk_temporada,
             fk_rivalidade,
-            tempo_acompanhamento,
+            fk_acompanhamento,
             senha
         ) VALUES (
             '${nome}',

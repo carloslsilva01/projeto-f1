@@ -134,29 +134,30 @@ INSERT INTO temporada (ano) VALUES
 ('Não sei'),
 ('Outra');
 
+CREATE TABLE acompanhamento (
+    id_acompanhamento INT PRIMARY KEY AUTO_INCREMENT,
+    descricao VARCHAR(100) NOT NULL UNIQUE
+);
+
+INSERT INTO acompanhamento (descricao) VALUES
+('Menos de 1 ano'),
+('Entre 1 a 3 anos'),
+('Entre 3 a 5 anos'),
+('Entre 5 e 10 anos'),
+('Mais de 10 anos');
+
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
 
-    tempo_acompanhamento VARCHAR(30)
-    CHECK (
-        tempo_acompanhamento IN (
-            'Menos de 1 ano',
-            'Entre 1 a 3 anos',
-            'Entre 3 a 5 anos',
-            'Entre 5 e 10 anos',
-            'Mais de 10 anos'
-        )
-    ),
-
-    fk_equipe INT,
-    fk_piloto INT,
-    fk_circuito INT,
-    fk_rivalidade INT,
-    fk_temporada INT,
-
+    fk_equipe INT, 
+    fk_piloto INT, 
+    fk_circuito INT, 
+    fk_rivalidade INT, 
+    fk_temporada INT, 
+    fk_acompanhamento INT, 
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_usuario_equipe
