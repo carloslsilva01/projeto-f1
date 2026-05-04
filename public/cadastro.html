@@ -465,9 +465,9 @@
                 alert("Cadastro realizado com sucesso!");
                 setTimeout(function () {
                     window.location = "login.html";
-                }, 2000);
+                }, 1500);
             } else {
-                alert("Erro ao realizar cadastro.");
+                alert("Erro ao realizar cadastro, o email inserido pode já estar cadastrado no sistema!");
             }
         })
         .catch(function (erro) {
