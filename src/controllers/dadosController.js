@@ -12,6 +12,19 @@ function buscarUsuariosTotal(req, res) {
         });
 }
 
+function buscarEquipePopular(req, res) {
+    dadosModel.buscarEquipePopular()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao tentar buscar a equipe mais popular!');
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
-    buscarUsuariosTotal
+    buscarUsuariosTotal,
+    buscarEquipePopular
 };
