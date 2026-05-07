@@ -23,34 +23,38 @@ INSERT INTO equipe (nome) VALUES
 
 CREATE TABLE piloto (
     id_piloto INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL UNIQUE
+    nome VARCHAR(100) NOT NULL UNIQUE,
+    fk_equipe INT,
+    CONSTRAINT fk_piloto_equipe
+        FOREIGN KEY (fk_equipe)
+        REFERENCES equipe(id_equipe)
 );
 
-INSERT INTO piloto (nome) VALUES
-('Alex Albon'),
-('Andrea Kimi Antonelli'),
-('Arvid Lindblad'),
-('Carlos Sainz'),
-('Charles Leclerc'),
-('Esteban Ocon'),
-('Fernando Alonso'),
-('Franco Colapinto'),
-('Gabriel Bortoleto'),
-('George Russell'),
-('Isack Hadjar'),
-('Lance Stroll'),
-('Lando Norris'),
-('Lewis Hamilton'),
-('Liam Lawson'),
-('Max Verstappen'),
-('Nico Hulkenberg'),
-('Oliver Bearman'),
-('Oscar Piastri'),
-('Pierre Gasly'),
-('Sergio Perez'),
-('Valtteri Bottas'),
-('Não sei'),
-('Outro');
+INSERT INTO piloto (nome, fk_equipe) VALUES
+('Alex Albon', 11),             
+('Andrea Kimi Antonelli', 8),  
+('Arvid Lindblad', 9),         
+('Carlos Sainz', 11),       
+('Charles Leclerc', 5),       
+('Esteban Ocon', 6),       
+('Fernando Alonso', 2),    
+('Franco Colapinto', 1),   
+('Gabriel Bortoleto', 3),    
+('George Russell', 8),      
+('Isack Hadjar', 10),          
+('Lance Stroll', 2),        
+('Lando Norris', 7),      
+('Lewis Hamilton', 5),     
+('Liam Lawson', 10),         
+('Max Verstappen', 10),       
+('Nico Hulkenberg', 3),       
+('Oliver Bearman', 6),      
+('Oscar Piastri', 7),          
+('Pierre Gasly', 1),           
+('Sergio Perez', 4),          
+('Valtteri Bottas', 4),       
+('Não sei', 12),             
+('Outro', 13);                
 
 CREATE TABLE circuito (
     id_circuito INT PRIMARY KEY AUTO_INCREMENT,
@@ -183,4 +187,15 @@ CREATE TABLE usuario (
     CONSTRAINT fk_usuario_acompanhamento
         FOREIGN KEY (fk_acompanhamento)
         REFERENCES acompanhamento(id_acompanhamento)
+);
+
+CREATE TABLE ranking_quiz (
+    id_ranking INT PRIMARY KEY AUTO_INCREMENT,
+    fk_usuario INT,
+    data_quiz DATETIME DEFAULT CURRENT_TIMESTAMP,
+    pontos INT,
+
+    CONSTRAINT fk_quiz_usuario
+        FOREIGN KEY (fk_usuario)
+        REFERENCES usuario(id_usuario)
 );
