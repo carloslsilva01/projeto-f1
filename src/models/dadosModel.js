@@ -23,7 +23,22 @@ function buscarEquipePopular() {
     return database.executar(instrucaoSql);
 }
 
+function buscarPilotoPopular() {
+    console.log('Buscando Piloto Mais Popular do Sistema');
+
+    var instrucaoSql = 
+    `SELECT p.nome, COUNT(u.fk_piloto) AS quantidade_fas
+    FROM usuario u
+    JOIN piloto p ON p.id_piloto = u.fk_piloto
+    GROUP BY p.nome
+    ORDER BY quantidade_fas DESC LIMIT 1;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUsuariosTotal,
-    buscarEquipePopular
+    buscarEquipePopular,
+    buscarPilotoPopular
 };

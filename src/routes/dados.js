@@ -11,4 +11,8 @@ router.get("/dashboard/kpi/equipe", function (req, res) {
     dadosController.buscarEquipePopular(req, res);
 })
 
+router.get("/dashboard/kpi/piloto", function (req, res) {
+    dadosController.buscarPilotoPopular(req, res);
+})
+
 module.exports = router;

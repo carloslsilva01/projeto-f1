@@ -24,7 +24,20 @@ function buscarEquipePopular(req, res) {
         });
 }
 
+function buscarPilotoPopular(req, res) {
+    dadosModel.buscarPilotoPopular()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao tentar buscar o piloto mais popular!');
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     buscarUsuariosTotal,
-    buscarEquipePopular
+    buscarEquipePopular,
+    buscarPilotoPopular
 };
