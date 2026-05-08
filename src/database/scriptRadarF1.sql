@@ -156,12 +156,12 @@ CREATE TABLE usuario (
     email VARCHAR(150) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
 
-    fk_equipe INT, 
-    fk_piloto INT, 
-    fk_circuito INT, 
-    fk_rivalidade INT, 
-    fk_temporada INT, 
-    fk_acompanhamento INT, 
+    fk_equipe INT NOT NULL, 
+    fk_piloto INT NOT NULL, 
+    fk_circuito INT NOT NULL, 
+    fk_rivalidade INT NOT NULL, 
+    fk_temporada INT NOT NULL, 
+    fk_acompanhamento INT NOT NULL, 
     data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT fk_usuario_equipe
@@ -191,9 +191,9 @@ CREATE TABLE usuario (
 
 CREATE TABLE ranking_quiz (
     id_ranking INT PRIMARY KEY AUTO_INCREMENT,
-    fk_usuario INT,
+    fk_usuario INT NOT NULL,
     data_quiz DATETIME DEFAULT CURRENT_TIMESTAMP,
-    pontos INT,
+    pontos INT NOT NULL,
 
     CONSTRAINT fk_quiz_usuario
         FOREIGN KEY (fk_usuario)
