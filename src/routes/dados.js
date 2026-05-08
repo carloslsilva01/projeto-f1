@@ -15,4 +15,8 @@ router.get("/dashboard/kpi/piloto", function (req, res) {
     dadosController.buscarPilotoPopular(req, res);
 })
 
+router.get("/dashboard/kpi/quiz", function (req, res) {
+    dadosController.buscarPorcentagemAcertoQuiz(req, res);
+})
+
 module.exports = router;

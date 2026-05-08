@@ -36,8 +36,21 @@ function buscarPilotoPopular(req, res) {
         });
 }
 
+function buscarPorcentagemAcertoQuiz(req, res) {
+    dadosModel.buscarPorcentagemAcertoQuiz()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao tentar buscar porcentagem de acerto no quiz!');
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
-    buscarPilotoPopular
+    buscarPilotoPopular,
+    buscarPorcentagemAcertoQuiz
 };

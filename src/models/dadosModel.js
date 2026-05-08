@@ -37,8 +37,24 @@ function buscarPilotoPopular() {
     return database.executar(instrucaoSql);
 }
 
+function buscarPorcentagemAcertoQuiz() {
+    console.log('Buscando Porcentagem(%) de Acerto do Quiz');
+
+    var instrucaoSql = 
+    `SELECT TRUNCATE(AVG((melhor_pontuacao / 10) * 100), 1) AS porcentagem
+    FROM (
+    SELECT MAX(pontos) AS melhor_pontuacao
+    FROM ranking_quiz
+    GROUP BY fk_usuario
+    ) AS melhores_resultados;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
-    buscarPilotoPopular
+    buscarPilotoPopular,
+    buscarPorcentagemAcertoQuiz
 };
