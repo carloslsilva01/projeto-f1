@@ -96,6 +96,21 @@ function buscarTempoDeAcompanhamento() {
     return database.executar(instrucaoSql);
 }
 
+function buscarEquipeTempo(idAcompanhamento) {
+    console.log('Buscando Equipes por Tempo de Acompanhamento');
+
+    var instrucaoSql = 
+    `SELECT e.nome AS equipe, COUNT(*) AS quantidade FROM usuario u
+    JOIN equipe e ON u.fk_equipe = e.id_equipe
+    JOIN acompanhamento a ON u.fk_acompanhamento = a.id_acompanhamento
+    WHERE a.id_acompanhamento = ${idAcompanhamento}
+    GROUP BY e.nome
+    HAVING quantidade > 0
+    ORDER BY quantidade DESC;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 
 module.exports = {
@@ -105,5 +120,6 @@ module.exports = {
     buscarPorcentagemAcertoQuiz,
     buscarTop5equipesFavoritas,
     buscarTop5pilotosFavoritos,
-    buscarTempoDeAcompanhamento
+    buscarTempoDeAcompanhamento,
+    buscarEquipeTempo
 };

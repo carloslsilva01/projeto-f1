@@ -35,4 +35,8 @@ router.get("/dashboard/grafico/acompanhamento", function (req, res) {
     dadosController.buscarTempoDeAcompanhamento(req, res);
 })
 
+router.get("/dashboard/grafico/equipe-tempo/:idAcompanhamento", function (req, res) {
+    dadosController.buscarEquipeTempo(req, res);
+})
+
 module.exports = router;

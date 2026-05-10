@@ -84,6 +84,21 @@ function buscarTempoDeAcompanhamento(req, res) {
         })
 }
 
+function buscarEquipeTempo(req, res) {
+
+    let idAcompanhamento = req.params.idAcompanhamento;
+
+    dadosModel.buscarEquipeTempo(idAcompanhamento)
+        .then(function(resultado) {
+            res.json(resultado);
+        })
+        .catch(function(erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar equipes por tempo!");
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
@@ -91,5 +106,6 @@ module.exports = {
     buscarPorcentagemAcertoQuiz,
     buscarTop5equipesFavoritas,
     buscarTop5pilotosFavoritos,
-    buscarTempoDeAcompanhamento
+    buscarTempoDeAcompanhamento,
+    buscarEquipeTempo
 };
