@@ -23,4 +23,8 @@ router.get("/dashboard/grafico/equipe", function (req, res) {
     dadosController.buscarTop5equipesFavoritas(req, res);
 })
 
+router.get("/dashboard/grafico/piloto", function (req, res) {
+    dadosController.buscarTop5pilotosFavoritos(req, res);
+})
+
 module.exports = router;

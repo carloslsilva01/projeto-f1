@@ -60,10 +60,23 @@ function buscarTop5equipesFavoritas(req, res) {
         })
 }
 
+function buscarTop5pilotosFavoritos(req, res) {
+    dadosModel.buscarTop5pilotosFavoritos()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao tentar buscar os top 5 pilotos favoritos!');
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
     buscarPilotoPopular,
     buscarPorcentagemAcertoQuiz,
-    buscarTop5equipesFavoritas
+    buscarTop5equipesFavoritas,
+    buscarTop5pilotosFavoritos
 };

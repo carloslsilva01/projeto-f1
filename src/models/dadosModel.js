@@ -70,11 +70,25 @@ function buscarTop5equipesFavoritas() {
     return database.executar(instrucaoSql);
 }
 
+function buscarTop5pilotosFavoritos() {
+    console.log('Buscando os Top 5 Pilotos Favoritos');
+
+    var instrucaoSql = 
+    `SELECT p.nome, COUNT(u.fk_piloto) AS fas FROM usuario u
+    JOIN piloto p ON p.id_piloto = u.fk_piloto
+    GROUP BY p.nome 
+    ORDER BY fas DESC
+    LIMIT 5;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
     buscarPilotoPopular,
     buscarPorcentagemAcertoQuiz,
-    buscarTop5equipesFavoritas
+    buscarTop5equipesFavoritas,
+    buscarTop5pilotosFavoritos
 };
