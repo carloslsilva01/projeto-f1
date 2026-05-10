@@ -84,11 +84,26 @@ function buscarTop5pilotosFavoritos() {
     return database.executar(instrucaoSql);
 }
 
+function buscarTempoDeAcompanhamento() {
+    console.log('Buscando o Tempo de Acompanhamento dos Fãs');
+
+    var instrucaoSql =
+    `SELECT a.descricao AS tempo, COUNT(u.fk_acompanhamento) AS quantidade FROM usuario u
+    JOIN acompanhamento a ON u.fk_acompanhamento = a.id_acompanhamento
+    GROUP BY a.descricao;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
     buscarPilotoPopular,
     buscarPorcentagemAcertoQuiz,
     buscarTop5equipesFavoritas,
-    buscarTop5pilotosFavoritos
+    buscarTop5pilotosFavoritos,
+    buscarTempoDeAcompanhamento
 };
