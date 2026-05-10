@@ -48,9 +48,22 @@ function buscarPorcentagemAcertoQuiz(req, res) {
         })
 }
 
+function buscarTop5equipesFavoritas(req, res) {
+    dadosModel.buscarTop5equipesFavoritas()
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log('Houve um erro ao tentar buscar as top 5 equipes favoritas!');
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
     buscarPilotoPopular,
-    buscarPorcentagemAcertoQuiz
+    buscarPorcentagemAcertoQuiz,
+    buscarTop5equipesFavoritas
 };

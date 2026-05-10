@@ -1,5 +1,8 @@
 var database = require("../database/config")
 
+
+// Funções Para Dados da KPI
+
 function buscarUsuariosTotal() {
     console.log('Buscando Quantidade Usuarios Totais no Sistema');
 
@@ -52,9 +55,26 @@ function buscarPorcentagemAcertoQuiz() {
     return database.executar(instrucaoSql);
 }
 
+// Funções para Dados dos Gráficos
+function buscarTop5equipesFavoritas() {
+    console.log('Buscando as Top 5 Equipes Favoritas');
+
+    var instrucaoSql = 
+    `SELECT e.nome, COUNT(u.fk_equipe) AS fas FROM usuario u
+    JOIN equipe e ON e.id_equipe = u.fk_equipe
+    GROUP BY e.nome 
+    ORDER BY fas DESC
+    LIMIT 5;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 module.exports = {
     buscarUsuariosTotal,
     buscarEquipePopular,
     buscarPilotoPopular,
-    buscarPorcentagemAcertoQuiz
+    buscarPorcentagemAcertoQuiz,
+    buscarTop5equipesFavoritas
 };
