@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 50px 30px;
+    padding: 50px 25px;
     background-color: #090909;
 }
 
@@ -28,7 +28,7 @@
     margin-bottom: 30px;
 }
 
-.card-inner {
+.card-dentro {
     width: 100%;
     height: 100%;
     position: relative;
@@ -36,12 +36,12 @@
     transform-style: preserve-3d;
 }
 
-.card-piloto:hover .card-inner {
+.card-piloto:hover .card-dentro {
     transform: rotateY(180deg) scale(1.03);
 }
 
-.card-front,
-.card-back {
+.card-frente,
+.card-tras {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -51,7 +51,7 @@
     border: 3px solid var(--equipe);
 }
 
-.card-front {
+.card-frente {
     background:
     linear-gradient(
         180deg,
@@ -63,7 +63,7 @@
     align-items: center;
 }
 
-.card-front img {
+.card-frente img {
     width: 100%;
     height: 310px;
     object-fit: contain;
@@ -71,13 +71,13 @@
     border-bottom: 2px solid rgba(255,255,255,0.08);
 }
 
-.card-front h2 {
+.card-frente h2 {
     color: white;
     font-size: 26px;
     margin-top: 5px;
 }
 
-.card-front p {
+.card-frente p {
     color: var(--equipe);
     font-size: 17px;
     font-weight: bold;
@@ -85,7 +85,7 @@
     margin-top: 8px;
 }
 
-.card-back {
+.card-tras {
     background:
     linear-gradient(
         180deg,
@@ -100,7 +100,7 @@
     gap: 16px;
 }
 
-.card-back h2 {
+.card-tras h2 {
     color: var(--equipe);
     font-size: 30px;
     margin-bottom: 10px;
@@ -108,7 +108,7 @@
     padding-bottom: 10px;
 }
 
-.card-back p {
+.card-tras p {
     color: white;
     font-size: 17px;
     display: flex;
@@ -117,7 +117,7 @@
     padding-bottom: 8px;
 }
 
-.card-back span {
+.card-tras span {
     color: #d6d6d6;
     font-size: 15px;
     line-height: 1.6;
@@ -125,26 +125,26 @@
     text-align: left;
 }
 
-.card-back strong {
+.card-tras strong {
     color: var(--equipe);
 }
 
-.lendario .card-back {
+.lendario .card-tras {
     padding: 22px;
     gap: 10px;
 }
 
-.lendario .card-back h2 {
+.lendario .card-tras h2 {
     font-size: 26px;
     margin-bottom: 4px;
 }
 
-.lendario .card-back p {
+.lendario .card-tras p {
     font-size: 15px;
     padding-bottom: 6px;
 }
 
-.lendario .card-back span {
+.lendario .card-tras span {
     font-size: 13px;
     line-height: 1.4;
     margin-top: 4px;
