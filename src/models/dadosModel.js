@@ -90,7 +90,8 @@ function buscarTempoDeAcompanhamento() {
     var instrucaoSql =
     `SELECT a.descricao AS tempo, COUNT(u.fk_acompanhamento) AS quantidade FROM usuario u
     JOIN acompanhamento a ON u.fk_acompanhamento = a.id_acompanhamento
-    GROUP BY a.descricao;`
+    GROUP BY a.descricao
+    ORDER BY a.id_acompanhamento;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
