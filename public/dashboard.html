@@ -76,28 +76,75 @@
 
         function buscarKpis() {
 
-            fetch("/dados/dashboard/kpi/usuarios")
-                .then(res => res.json())
-                .then(resposta => {
-                    kpiTotal.innerHTML = resposta[0].total;
+            fetch("/dados/dashboard/kpi/usuarios", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+
+                            console.log(`Dados KPI Usuários: ${JSON.stringify(resposta)}`);
+                            kpiTotal.innerHTML = resposta[0].total;
+
+                        });
+                    } else {
+                        console.error("Erro ao buscar KPI de usuários.");
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção da KPI de usuários: ${erro.message}`);
                 });
 
-            fetch("/dados/dashboard/kpi/equipe")
-                .then(res => res.json())
-                .then(resposta => {
-                    kpiEquipe.innerHTML = resposta[0].nome;
+
+            fetch("/dados/dashboard/kpi/equipe", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+
+                            console.log(`Dados KPI Equipe: ${JSON.stringify(resposta)}`);
+                            kpiEquipe.innerHTML = resposta[0].nome;
+
+                        });
+                    } else {
+                        console.error("Erro ao buscar KPI de equipe.");
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção da KPI de equipe: ${erro.message}`);
                 });
 
-            fetch("/dados/dashboard/kpi/piloto")
-                .then(res => res.json())
-                .then(resposta => {
-                    kpiPiloto.innerHTML = resposta[0].nome;
+
+            fetch("/dados/dashboard/kpi/piloto", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+
+                            console.log(`Dados KPI Piloto: ${JSON.stringify(resposta)}`);
+                            kpiPiloto.innerHTML = resposta[0].nome;
+
+                        });
+                    } else {
+                        console.error("Erro ao buscar KPI de piloto.");
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção da KPI de piloto: ${erro.message}`);
                 });
 
-            fetch("/dados/dashboard/kpi/quiz")
-                .then(res => res.json())
-                .then(resposta => {
-                    kpiQuiz.innerHTML = resposta[0].porcentagem + "%";
+
+            fetch("/dados/dashboard/kpi/quiz", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
+
+                            console.log(`Dados KPI Quiz: ${JSON.stringify(resposta)}`);
+                            kpiQuiz.innerHTML = resposta[0].porcentagem + "%";
+
+                        });
+                    } else {
+                        console.error("Erro ao buscar KPI do quiz.");
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção da KPI do quiz: ${erro.message}`);
                 });
         }
 
@@ -105,174 +152,218 @@
 
         function buscarGraficoEquipes() {
 
-            fetch("/dados/dashboard/grafico/equipe")
-                .then(res => res.json())
-                .then(resposta => {
+            fetch("/dados/dashboard/grafico/equipe", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
 
-                    let nomesEquipes = [];
-                    let dados = [];
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    for (let i = 0; i < resposta.length; i++) {
-                        nomesEquipes.push(resposta[i].nome);
-                        dados.push(resposta[i].fas);
+                            let nomesEquipes = [];
+                            let dados = [];
+
+                            for (let i = 0; i < resposta.length; i++) {
+
+                                let registro = resposta[i];
+
+                                nomesEquipes.push(registro.nome);
+                                dados.push(registro.fas);
+                            }
+
+                            new Chart(graficoEquipeFavorita, {
+                                type: 'bar',
+                                data: {
+                                    labels: nomesEquipes,
+                                    datasets: [{
+                                        label: 'Quantidade de Fãs',
+                                        data: dados,
+                                        backgroundColor: [
+                                            '#E10600',
+                                            '#FF2D2D',
+                                            '#B80000',
+                                            '#FF5C5C',
+                                            '#8B0000'
+                                        ],
+                                        borderRadius: 8
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                color: 'white'
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        y: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        },
+                                        x: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                        });
+
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
                     }
 
-                    new Chart(graficoEquipeFavorita, {
-                        type: 'bar',
-                        data: {
-                            labels: nomesEquipes,
-                            datasets: [{
-                                label: 'Quantidade de Fãs',
-                                data: dados,
-                                backgroundColor: [
-                                    '#E10600',
-                                    '#FF2D2D',
-                                    '#B80000',
-                                    '#FF5C5C',
-                                    '#8B0000'
-                                ],
-                                borderRadius: 8
-                            }]
-                        },
-                        options: {
-                            plugins: {
-                                legend: {
-                                    labels: {
-                                        color: 'white'
-                                    }
-                                }
-                            },
-                            scales: {
-                                y: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                },
-                                x: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                }
-                            }
-                        }
-                    });
-
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção dos dados do gráfico: ${erro.message}`);
                 });
         }
+
 
         function buscarGraficoPilotos() {
 
-            fetch("/dados/dashboard/grafico/piloto")
-                .then(res => res.json())
-                .then(resposta => {
+            fetch("/dados/dashboard/grafico/piloto", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
 
-                    let nomePiloto = [];
-                    let dados = [];
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    for (let i = 0; i < resposta.length; i++) {
-                        nomePiloto.push(resposta[i].nome);
-                        dados.push(resposta[i].fas);
-                    }
+                            let nomePiloto = [];
+                            let dados = [];
 
-                    new Chart(graficoPilotoFavorito, {
-                        type: 'pie',
-                        data: {
-                            labels: nomePiloto,
-                            datasets: [{
-                                data: dados,
-                                backgroundColor: [
-                                    '#00A6FF',
-                                    '#FFD700',
-                                    '#00C853',
-                                    '#FF6D00',
-                                    '#9C27B0'
-                                ],
-                                borderColor: '#0D0D0D',
-                                borderWidth: 3
-                            }]
-                        },
-                        options: {
-                            plugins: {
-                                legend: {
-                                    labels: {
-                                        color: 'white'
+                            for (let i = 0; i < resposta.length; i++) {
+
+                                let registro = resposta[i];
+
+                                nomePiloto.push(registro.nome);
+                                dados.push(registro.fas);
+                            }
+
+                            new Chart(graficoPilotoFavorito, {
+                                type: 'pie',
+                                data: {
+                                    labels: nomePiloto,
+                                    datasets: [{
+                                        data: dados,
+                                        backgroundColor: [
+                                            '#00A6FF',
+                                            '#FFD700',
+                                            '#00C853',
+                                            '#FF6D00',
+                                            '#9C27B0'
+                                        ],
+                                        borderColor: '#0D0D0D',
+                                        borderWidth: 3
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                color: 'white'
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                        }
-                    });
+                            });
 
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção dos dados do gráfico: ${erro.message}`);
                 });
         }
+
 
         function buscarGraficoTempo() {
 
-            fetch("/dados/dashboard/grafico/acompanhamento")
-                .then(res => res.json())
-                .then(resposta => {
+            fetch("/dados/dashboard/grafico/acompanhamento", { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
 
-                    let labels = [];
-                    let dados = [];
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    for (let i = 0; i < resposta.length; i++) {
-                        labels.push(resposta[i].tempo);
-                        dados.push(resposta[i].quantidade);
-                    }
+                            let labels = [];
+                            let dados = [];
 
-                    new Chart(graficoTempoAcompanhamento, {
-                        type: 'bar',
-                        data: {
-                            labels: labels,
-                            datasets: [{
-                                label: 'Quantidade de Fãs',
-                                data: dados,
-                                backgroundColor: [
-                                    '#E10600',
-                                    '#C40000',
-                                    '#A00000',
-                                    '#7A0000',
-                                    '#550000'
-                                ],
-                                borderRadius: 8
-                            }]
-                        },
-                        options: {
-                            plugins: {
-                                legend: {
-                                    labels: {
-                                        color: 'white'
-                                    }
-                                }
-                            },
-                            scales: {
-                                y: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                },
-                                x: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                }
+                            for (let i = 0; i < resposta.length; i++) {
+
+                                let registro = resposta[i];
+
+                                labels.push(registro.tempo);
+                                dados.push(registro.quantidade);
                             }
-                        }
-                    });
 
+                            new Chart(graficoTempoAcompanhamento, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: 'Quantidade de Fãs',
+                                        data: dados,
+                                        backgroundColor: [
+                                            '#E10600',
+                                            '#C40000',
+                                            '#A00000',
+                                            '#7A0000',
+                                            '#550000'
+                                        ],
+                                        borderRadius: 8
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                color: 'white'
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        y: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        },
+                                        x: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção dos dados do gráfico: ${erro.message}`);
                 });
         }
+
 
         let graficoEquipeTempoChart;
 
@@ -280,68 +371,81 @@
 
             const idAcompanhamento = selectTempo.value;
 
-            fetch(`/dados/dashboard/grafico/equipe-tempo/${idAcompanhamento}`)
-                .then(res => res.json())
-                .then(resposta => {
+            fetch(`/dados/dashboard/grafico/equipe-tempo/${idAcompanhamento}`, { cache: 'no-store' })
+                .then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (resposta) {
 
-                    let nomesEquipes = [];
-                    let dados = [];
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    for (let i = 0; i < resposta.length; i++) {
-                        nomesEquipes.push(resposta[i].equipe);
-                        dados.push(resposta[i].quantidade);
-                    }
+                            let nomesEquipes = [];
+                            let dados = [];
 
-                    if (graficoEquipeTempoChart) {
-                        graficoEquipeTempoChart.destroy();
-                    }
+                            for (let i = 0; i < resposta.length; i++) {
 
-                    graficoEquipeTempoChart = new Chart(graficoEquipeTempo, {
-                        type: 'bar',
-                        data: {
-                            labels: nomesEquipes,
-                            datasets: [{
-                                label: 'Quantidade de Fãs',
-                                data: dados,
-                                backgroundColor: [
-                                    '#FF1744',
-                                    '#F50057',
-                                    '#D50000',
-                                    '#C51162',
-                                    '#AA00FF'
-                                ],
-                                borderRadius: 8
-                            }]
-                        },
-                        options: {
-                            plugins: {
-                                legend: {
-                                    labels: {
-                                        color: 'white'
-                                    }
-                                }
-                            },
-                            scales: {
-                                y: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                },
-                                x: {
-                                    ticks: {
-                                        color: 'white'
-                                    },
-                                    grid: {
-                                        color: '#2A2A2A'
-                                    }
-                                }
+                                let registro = resposta[i];
+
+                                nomesEquipes.push(registro.equipe);
+                                dados.push(registro.quantidade);
                             }
-                        }
-                    });
 
+                            if (graficoEquipeTempoChart != undefined) {
+                                graficoEquipeTempoChart.destroy();
+                            }
+
+                            graficoEquipeTempoChart = new Chart(graficoEquipeTempo, {
+                                type: 'bar',
+                                data: {
+                                    labels: nomesEquipes,
+                                    datasets: [{
+                                        label: 'Quantidade de Fãs',
+                                        data: dados,
+                                        backgroundColor: [
+                                            '#FF1744',
+                                            '#F50057',
+                                            '#D50000',
+                                            '#C51162',
+                                            '#AA00FF'
+                                        ],
+                                        borderRadius: 8
+                                    }]
+                                },
+                                options: {
+                                    plugins: {
+                                        legend: {
+                                            labels: {
+                                                color: 'white'
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        y: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        },
+                                        x: {
+                                            ticks: {
+                                                color: 'white'
+                                            },
+                                            grid: {
+                                                color: '#2A2A2A'
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro na obtenção dos dados do gráfico: ${erro.message}`);
                 });
         }
 
