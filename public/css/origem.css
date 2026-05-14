@@ -1,0 +1,120 @@
+.banner {
+    background-image: url('../assets/origem-banner.png');
+    background-size: cover; 
+    background-position: center; 
+    height: 60vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    color: white;
+}
+
+.titulo {
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 20px;
+}
+
+.container-origem {
+    padding: 5%;
+    background-color: #090909;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-origem p {
+    letter-spacing: 1px;
+    text-align: justify;
+}
+
+.container-inicio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-campeonato {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-estrutura {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-estrutura ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.tabela-pontos {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #111111;
+}
+
+.tabela-pontos th {
+    background-color: #E10600;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.tabela-pontos td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #2A2A2A;
+    transition: 0.3s;
+}
+
+.tabela-pontos tr {
+    background-color: #111111;
+}
+
+.tabela-pontos tr:hover {
+    background-color: #2A2A2A;
+    transform: scale(1.01);
+}
+
+.tabela-pontos tr td:first-child {
+    font-weight: bold;
+    color: #E10600;
+}
+
+.tabela-pontos tr td:last-child {
+    color: #FFFFFF;
+}
+
+.container-regra {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-seguranca {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-rivalidade {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-tecnologia {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
