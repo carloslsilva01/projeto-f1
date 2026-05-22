@@ -310,7 +310,6 @@
 
             } else {
 
-                enviarResposta();
                 finalizarQuiz();
 
             }
@@ -346,6 +345,8 @@
 
         function finalizarQuiz() {
 
+            enviarResposta();
+
             document.getElementById("jogo").style.display = "none";
             document.getElementById("pontuacao").style.display = "block";
 
@@ -379,6 +380,31 @@
 
         function enviarResposta() {
 
+            const idUsuario = sessionStorage.getItem('ID_USUARIO');
+
+            fetch('/quiz/registrar', {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                idUsuarioServer: idUsuario,
+                pontuacaoServer: pontuacaoFinal,
+                certasServer: certas
+                }) 
+            })
+            .then(function (resposta) {
+                console.log("Reposta: ", resposta);
+                if(resposta.ok) {
+                    alert('Quiz registrado com sucesso!');
+                } else {
+                    alert('Erro ao tentar registrar a tentativa do quiz na base de dados!');
+                }
+            })
+            .catch(function (erro) {
+                console.log("Erro: ", erro);
+                alert("Erro na comunicação com o servidor.");
+            })
         }
         
     </script>

@@ -44,9 +44,9 @@ function buscarPorcentagemAcertoQuiz() {
     console.log('Buscando Porcentagem(%) de Acerto do Quiz');
 
     var instrucaoSql = 
-    `SELECT TRUNCATE(AVG((melhor_pontuacao / 10) * 100), 1) AS porcentagem
+    `SELECT TRUNCATE(AVG((melhor_pontuacao / 15) * 100), 1) AS porcentagem
     FROM (
-    SELECT MAX(pontos) AS melhor_pontuacao
+    SELECT MAX(acertos) AS melhor_pontuacao
     FROM ranking_quiz
     GROUP BY fk_usuario
     ) AS melhores_resultados;`

@@ -193,7 +193,8 @@ CREATE TABLE ranking_quiz (
     id_ranking INT PRIMARY KEY AUTO_INCREMENT,
     fk_usuario INT NOT NULL,
     data_quiz DATETIME DEFAULT CURRENT_TIMESTAMP,
-    pontos INT NOT NULL,
+    acertos INT NOT NULL,
+    pontos INT NOT NULL
 
     CONSTRAINT fk_quiz_usuario
         FOREIGN KEY (fk_usuario)
