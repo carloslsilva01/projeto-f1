@@ -1,0 +1,277 @@
+main {
+    display: flex;
+}
+
+.menu {
+    background-color: #1F1F1F;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: white;
+    padding: 40px 15px;
+}
+
+.menu ul li {
+    margin-bottom: 10px;
+}
+
+
+.link-menu {
+    position: relative;
+    display: inline-block;
+    color: white;
+    transition: 0.4s;
+}
+
+.link-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #E10600;
+    transition: 0.4s;
+}
+
+.link-menu:hover::after {
+    width: 100%;
+}
+
+.container-principal {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-sair {
+    margin-top: 15px;
+    align-self: center;
+    text-align: center;
+    width: max-content;
+    background-color: #E10600;
+    padding: 3px 25px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Css para o Quiz */
+
+.container-principal {
+    background-color: #0D0D0D;
+    padding: 25px 30px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 100vh;
+}
+
+.container-ranking {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-ranking h2 {
+    color: white;
+}
+
+#tabela_ranking {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: separate;
+    margin-top: 20px;
+    background-color: #111111;
+    color: white;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+#tabela_ranking th {
+    background-color: #E10600;
+    padding: 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+#tabela_ranking td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #2A2A2A;
+    transition: 0.3s;
+}
+
+#tabela_ranking tr:hover {
+    background-color: #1A1A1A;
+}
+
+.container-quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-explicacao,
+#jogo,
+#pontuacao {
+    width: 100%;
+    max-width: 850px;
+    background: linear-gradient(145deg, #181818, #101010);
+    border-radius: 20px;
+    padding: 30px 40px;
+    border: 1px solid #252525;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.container-explicacao {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-explicacao h2 {
+    color: #E10600;
+    font-size: 30px;
+    line-height: 1.4;
+}
+
+.container-explicacao p {
+    color: #C7C7C7;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+#btnIniciarQuiz {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: #E10600;
+    align-self: flex-start;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnIniciarQuiz:hover {
+    background-color: #b80000;
+    transform: scale(1.02);
+}
+
+#jogo {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#infoQuestao {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: #C7C7C7;
+}
+
+#spanDificuldade {
+    font-weight: bold;
+    color: #E10600;
+}
+
+#perguntaDaQuestaoAtual {
+    background-color: #1A1A1A;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #2A2A2A;
+}
+
+#spanQuestaoExibida {
+    font-size: 22px;
+    color: white;
+    line-height: 1.4;
+}
+
+#opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#opcoes span {
+    background-color: #1A1A1A;
+    border: 1px solid #2A2A2A;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+#opcoes span:hover {
+    border-color: #E10600;
+    transform: translateX(5px);
+}
+
+#opcoes label {
+    width: 100%;
+    cursor: pointer;
+    color: #E0E0E0;
+    font-size: 16px;
+}
+
+input[type="radio"] {
+    accent-color: #E10600;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#btnProx,
+#pontuacao button {
+    border: none;
+    border-radius: 10px;
+    background-color: #E10600;
+    color: white;
+    font-weight: bold;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: max-content;
+}
+
+#btnProx:hover,
+#pontuacao button:hover {
+    background-color: #b80000;
+    transform: scale(1.03);
+}
+
+#pontuacao {
+    color: white;
+    text-align: center;
+}
+
+#pontuacao h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#pontuacao p {
+    font-size: 18px;
+    color: #D0D0D0;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+#pontuacaoUsuario {
+    color: #E10600;
+}
+
+#pontuacao button {
+    margin: 10px 8px;
+}

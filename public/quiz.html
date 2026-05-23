@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz | Radar F1</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/quiz.css">
 </head>
 <body onload="carregar(); onloadEsconder(); buscarRanking()">
     <main>
@@ -18,14 +19,14 @@
         </section>
         <section class="container-principal">
             <article class="container-ranking">
+                <h2>Nossos Top 5 Do Ranking:</h2>
                 <table id="tabela_ranking">
 
                 </table>
             </article>
             <article class="container-quiz">
                 <div id="container-explicacao" class="container-explicacao">
-                    <h2>Realize nosso Quiz e Prove seus Conhecimentos de Fórmula 1!</h2>
-                    <h2>Como Funciona?</h2>
+                    <h2>Realize nosso Quiz e Prove seus Conhecimentos de Fórmula 1!<br>Como Funciona?</h2>
                     <p>Cada questão do Quiz vai te dar pontos variando de acordo com a dificuldade da pergunta, após finalizar o quiz será enviado para análise de resultados, sua pontuação será registrada no sistema e você poderá ver sua colocação no ranking e se conseguiu ficar no nosso Top 5!</p>
                     <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
                 </div>
@@ -67,6 +68,7 @@
                     <p id="mensagemPontuacao"></p>
                     <p>Deseja tentar novamente?</p>
                     <button onclick="tentarNovamente()">Tentar Novamente</button>
+                    <button onclick="voltar()">Voltar</button>
                 </div>
             </article>
         </section>
@@ -254,10 +256,10 @@
                                 })
                             }
 
-                            let tabela =`<tr><th>Nome</th><th>Pontuação</th></tr>`;
+                            let tabela =`<tr><th>Posição</th><th>Nome</th><th>Pontuação</th></tr>`;
 
                             for(let i = 0; i < rankingTop5.length; i++) {
-                                tabela +=`<tr><td>${rankingTop5[i].nome}</td><td>${rankingTop5[i].pontuacao}</td></tr>`;
+                                tabela +=`<tr><td>${i + 1}º<td>${rankingTop5[i].nome}</td><td>${rankingTop5[i].pontuacao}</td></tr>`;
                             }
 
                             tabela +=`</table>`;
@@ -286,7 +288,7 @@
 
         function iniciarQuiz() {
 
-            document.getElementById("jogo").style.display = "block";
+            document.getElementById("jogo").style.display = "flex";
             document.getElementById("btnIniciarQuiz").style.display = "none";
             document.getElementById("container-explicacao").style.display = "none";
             document.getElementById("pontuacao").style.display = "none";
@@ -400,6 +402,14 @@
 
             document.getElementById("mensagemPontuacao").innerHTML = mensagem;
             document.getElementById("pontuacaoUsuario").innerHTML = pontuacaoFinal;
+
+        }
+
+        function voltar() {
+
+            document.getElementById("pontuacao").style.display = "none";
+            document.getElementById("container-explicacao").style.display = "flex";
+            document.getElementById("btnIniciarQuiz").style.display = "block";
 
         }
 
