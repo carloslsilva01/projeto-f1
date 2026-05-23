@@ -18,7 +18,9 @@
         </section>
         <section class="container-principal">
             <article class="container-ranking">
+                <table id="tabela_ranking">
 
+                </table>
             </article>
             <article class="container-quiz">
                 <div id="container-explicacao" class="container-explicacao">
@@ -237,6 +239,38 @@
         }
 
         function buscarRanking() {
+            let rankingTop5 = [];
+
+            fetch('/quiz/ranking-top-5', { cache: 'no-store' })
+                .then(function (response) {
+                    if(response.ok) {
+                        response.json().then(function (resposta) {
+
+                            console.log(`Ranking Top 5: ${JSON.stringify(resposta)}`);
+                            for(let i = 0; i < resposta.length; i++) {
+                                rankingTop5.push({
+                                    nome: resposta[i].nome,
+                                    pontuacao: resposta[i].pontuacao
+                                })
+                            }
+
+                            let tabela =`<tr><th>Nome</th><th>Pontuação</th></tr>`;
+
+                            for(let i = 0; i < rankingTop5.length; i++) {
+                                tabela +=`<tr><td>${rankingTop5[i].nome}</td><td>${rankingTop5[i].pontuacao}</td></tr>`;
+                            }
+
+                            tabela +=`</table>`;
+                            tabela_ranking.innerHTML = tabela;
+
+                        });
+                    } else {
+                        console.log('Erro ao buscar o ranking top 5!');
+                    }
+                })
+                .catch(function (erro) {
+                    console.error(`Erro ao tentar obter os top 5 do ranking: ${erro.message}`);
+                });
 
         }
 
