@@ -101,6 +101,32 @@
     gap: 10px;
 }
 
+.container-pneu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.box-pneu {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+
+.pneu {
+    width: 20%;
+}
+
+.pneu img {
+    width: 100%;
+}
+
+.pneu .descricao {
+    text-align: center;
+}
+
 .container-seguranca {
     display: flex;
     flex-direction: column;
