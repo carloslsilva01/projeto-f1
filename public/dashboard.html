@@ -17,7 +17,7 @@
                 <li><a href="dashboard.html" class="link-menu"><strong>Dashboard</strong></a></li>
                 <li><a href="quiz.html" class="link-menu">Quiz</a></li>
             </ul>
-            <a class="btn-sair" href="index.html">Sair</a>
+            <a class="btn-sair" onclick="limparSessao()" href="index.html">Sair</a>
         </section>
         <section class="container-principal">
             <article class="container-kpi">
@@ -447,6 +447,10 @@
                 .catch(function (erro) {
                     console.error(`Erro na obtenção dos dados do gráfico: ${erro.message}`);
                 });
+        }
+
+        function limparSessao() {
+            sessionStorage.clear();
         }
 
     </script>
