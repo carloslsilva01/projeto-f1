@@ -15,7 +15,7 @@
                 <li><a href="dashboard.html" class="link-menu"><strong>Dashboard</strong></a></li>
                 <li><a href="quiz.html" class="link-menu">Quiz</a></li>
             </ul>
-            <a class="btn-sair" onclick="limparSessao()" href="index.html">Sair</a>
+            <a class="btn-sair" href="index.html">Voltar</a>
         </section>
         <section class="container-principal">
             <article class="container-ranking">
@@ -450,10 +450,6 @@
                 console.log("Erro: ", erro);
                 alert("Erro na comunicação com o servidor.");
             })
-        }
-        
-        function limparSessao() {
-            sessionStorage.clear();
         }
         
     </script>
