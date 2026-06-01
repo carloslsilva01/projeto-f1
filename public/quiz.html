@@ -12,8 +12,8 @@
         <section class="menu">
             <h2 class="texto-menu">Olá, <span id="nome_usuario">-</span></h2>
             <ul>
-                <li><a href="dashboard.html" class="link-menu"><strong>Dashboard</strong></a></li>
-                <li><a href="quiz.html" class="link-menu">Quiz</a></li>
+                <li><a href="dashboard.html" class="link-menu">Dashboard</a></li>
+                <li><a href="quiz.html" class="link-menu"><strong>Quiz</strong></a></li>
             </ul>
             <a class="btn-sair" href="index.html">Voltar</a>
         </section>
@@ -382,7 +382,7 @@
         function finalizarQuiz() {
 
             enviarResposta();
-
+            buscarRanking();
             document.getElementById("jogo").style.display = "none";
             document.getElementById("pontuacao").style.display = "block";
 
