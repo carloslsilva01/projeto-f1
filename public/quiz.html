@@ -228,9 +228,17 @@
 
 
 
-        const nome = sessionStorage.getItem('NOME_USUARIO');
-
+        
         function carregar() {
+            
+            const idUsuario = sessionStorage.getItem('ID_USUARIO');
+            
+            if(idUsuario == undefined || idUsuario == null) {
+                alert("Realize o Login para acessar a tela de Dashboard!");
+                window.location = "login.html";
+            }
+            
+            const nome = sessionStorage.getItem('NOME_USUARIO');
             const menuNome = document.getElementById('nome_usuario');
 
             if (nome != null) {
