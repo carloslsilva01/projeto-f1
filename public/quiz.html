@@ -18,7 +18,7 @@
             <a class="btn-sair" href="index.html">Voltar</a>
         </section>
         <section class="container-principal">
-            <article class="container-ranking">
+            <article class="container-ranking" id="container_ranking">
                 <h2>Nossos Top 5 Do Ranking:</h2>
                 <table id="tabela_ranking">
 
@@ -300,6 +300,7 @@
             document.getElementById("btnIniciarQuiz").style.display = "none";
             document.getElementById("container-explicacao").style.display = "none";
             document.getElementById("pontuacao").style.display = "none";
+            document.getElementById("container_ranking").style.display = "none";
 
             preencherHTMLcomQuestaoAtual(0);
         }
@@ -393,6 +394,7 @@
             buscarRanking();
             document.getElementById("jogo").style.display = "none";
             document.getElementById("pontuacao").style.display = "block";
+            document.getElementById("container_ranking").style.display = "flex";
 
             let mensagem = `Você acertou ${certas} de ${quantidadeDeQuestoes} perguntas! <br>`;
 
